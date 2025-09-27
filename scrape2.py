@@ -4,6 +4,8 @@ import requests
 import pandas
 import sqlite_utils
 from bs4 import BeautifulSoup
+from api import BookAPI
+
 
 
 url = "https://books.toscrape.com/catalogue/page-1.html"
@@ -43,3 +45,21 @@ for book in books:
 conn.commit()
 conn.close()
 print("done")
+
+def main():
+    api = BookAPI()
+
+    while True:
+        title = input("Enter book title (or 'exit' to quit): ")
+        if title.lower() == 'exit':
+            break
+        book_info = api.search_by_title(title)
+        if book_info:
+            print(f"Author: {book_info['author']}")
+            print(f"First Publish Year: {book_info['first_publish_year']}")
+            print(f"OpenLibrary Key: {book_info['openlibrary_key']}")
+        else:
+            print("Book not found")
+
+if __name__ == "__main__":
+    main()
