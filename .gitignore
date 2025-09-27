@@ -1,0 +1,27 @@
+# Virtual environments
+env/
+venv/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Databases
+books.db
+*.sqlite3
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDEs / Editors
+.idea/
+*.iml
+.vscode/
+
+# Logs / Temporary files
+*.log
+*.tmp
+
